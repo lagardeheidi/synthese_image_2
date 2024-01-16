@@ -68,13 +68,12 @@ int main()
 
         // debindez le vao
         glBindVertexArray(0);
-
-        // liberer les ressources allouees sur GPU
     };
 
     // Should be done last. It starts the infinite loop.
     ctx.start();
-    // desalouer le vbo et vao
+    // liberer les ressources allouees sur GPU
+    // desallouer le vbo et vao
     glDeleteBuffers(1, &vbo);
     glDeleteVertexArrays(1, &vao);
 }
