@@ -9,8 +9,7 @@ struct Vertex2DColor {
     glm::vec3 color;
 };
 
-static constexpr int    N = 50;
-static constexpr double r = 0.5;
+static constexpr int N = 50;
 
 int main()
 {
@@ -43,13 +42,9 @@ int main()
     // on debind pour éviter de modifier le vbo par erreur, meme fonction qu'au début mais avec 0
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    // creation d'un ibo
+    // le ibo
     GLuint ibo;
-
-    // on le remplit
     glGenBuffers(1, &ibo);
-
-    // on le bind
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 
     // tableau d'indice pour chaque triangle
@@ -100,19 +95,13 @@ int main()
 
     // Declare your infinite update loop.
     ctx.update = [&]() {
-        /*********************************
-         * HERE SHOULD COME THE RENDERING CODE
-         *********************************/
-
+        // DESSIN
         // on nettoie la fenetre
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // Bindez le vao
-        glBindVertexArray(vao);
+        glBindVertexArray(vao); // bind du vao
 
         glimac::bind_default_shader();
-
-        // indique a opengl d'utiliser ce shader
         shader.use();
 
         glDrawElements(GL_TRIANGLES, N * 3, GL_UNSIGNED_INT, 0);

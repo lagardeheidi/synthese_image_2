@@ -85,13 +85,16 @@ int main()
 
         // Bindez le vao
         glBindVertexArray(vao);
+
         // indique a opengl d'utiliser ce shader
         shader.use();
 
         // Dessiner en utilisant le VAO
         //(le type de primitive, l'indice du premier sommet, le nb de sommets)
         glDrawArrays(GL_TRIANGLES, 0, 3 * N);
-        glBindVertexArray(0); // debind du vao
+
+        // debind du vao
+        glBindVertexArray(0);
     };
 
     // Should be done last. It starts the infinite loop.
