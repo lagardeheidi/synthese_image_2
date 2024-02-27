@@ -9,3 +9,6 @@ void main() {
   vFragColor = aVertexColor;
   gl_Position = vec4(aVertexPosition, 0., 1.);
 };
+//---------------------------------
+// Jouer avec les shaders TP4
+//---------------------------------
